@@ -3,17 +3,17 @@ import { FaReact, FaNodeJs, FaDatabase, FaCloud, FaCode, FaLayerGroup } from 're
 
 function About() {
   const stats = [
-    { label: 'Years Experience', value: '6+' },
-    { label: 'Projects Delivered', value: '40+' },
-    { label: 'Happy Clients', value: '25+' },
-    { label: 'Awards', value: '3' },
+    { label: 'Years Experience', value: '2' },
+    { label: 'Projects Delivered', value: '20+' },
+    { label: 'Happy Clients', value: '5+' },
+    { label: 'Technologies', value: '4+' },
   ]
 
   const expertise = [
     { 
       icon: FaCode, 
-      title: 'Design & Development', 
-      description: 'Creating cohesive digital experiences that blend aesthetic vision with technical excellence.' 
+      title: ' Development', 
+      description: 'Building complete web solutions by combining clean UI design with solid backend logic.' 
     },
     { 
       icon: FaReact, 
@@ -23,22 +23,22 @@ function About() {
     { 
       icon: FaLayerGroup, 
       title: 'System Architecture', 
-      description: 'Designing scalable, maintainable systems that grow with your business needs.' 
+      description: 'Building modern frontend applications using React, Next.js, and modern UI patterns.' 
     },
     { 
       icon: FaDatabase, 
-      title: 'Data & Analytics', 
-      description: 'Implementing robust data solutions that drive informed business decisions.' 
+      title: 'Data', 
+      description: 'Designing and managing databases, data models, and queries for real-world applications.' 
     },
     { 
       icon: FaCloud, 
-      title: 'Cloud Infrastructure', 
-      description: 'Deploying and managing modern cloud solutions on AWS and serverless platforms.' 
+      title: 'hosting', 
+      description: 'Deploying and maintaining applications using modern hosting .' 
     },
     { 
       icon: FaNodeJs, 
       title: 'API Design', 
-      description: 'Crafting intuitive, performant APIs that power seamless user experiences.' 
+      description: 'Designing and developing secure, performant REST and API-based systems.' 
     },
   ]
 
@@ -58,12 +58,14 @@ function About() {
           </span>
           <div className="grid lg:grid-cols-2 gap-12 items-end">
             <h2 className="text-heading font-display">
-              Bridging Design <span className="text-gradient-gold">& Engineering</span>
+Building <span className="text-gradient-gold">End-to-End</span> Solutions
             </h2>
             <p className="text-body text-textMuted font-light max-w-lg">
-              I'm a creative developer focused on building digital products that 
-              are not just functional, but truly beautiful. With a background in 
-              both design and engineering, I bring a unique perspective to every project.
+              I'm Oumaima El Badraouy, full stack developer focused on building complete web applications,
+from backend architecture and APIs to clean, responsive user interfaces.
+I enjoy solving complex problems, designing scalable systems, and delivering
+solutions that are reliable, performant, and easy to use.
+
             </p>
           </div>
         </motion.div>

@@ -28,15 +28,14 @@ function Contact() {
   }
 
   const contactInfo = [
-    { icon: FaEnvelope, label: 'Email', value: 'hello@developer.com', href: 'mailto:hello@developer.com' },
-    { icon: FaPhone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-    { icon: FaMapMarkerAlt, label: 'Location', value: 'San Francisco, CA', href: '#' },
+    { icon: FaEnvelope, label: 'Email', value: 'omaimaelbdraouy@gmail.com', href: 'mailto:omaimaelbdraouy@gmail.com' },
+    { icon: FaPhone, label: 'Phone', value: '+212 640-285590', href: 'tel:+212 640-285590' },
+    { icon: FaMapMarkerAlt, label: 'Location', value: 'Morocco', href: '#' },
   ]
 
   const socialLinks = [
     { icon: FaGithub, href: 'https://github.com/Oumaima-El-Badraouy', label: 'GitHub' },
     { icon: FaLinkedin, href: 'https://www.linkedin.com/in/oumaima-el-badraouy/', label: 'LinkedIn' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
   ]
 
   return (

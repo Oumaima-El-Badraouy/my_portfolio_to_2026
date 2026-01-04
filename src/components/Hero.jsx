@@ -88,7 +88,8 @@ function Hero() {
           {/* Tagline */}
           <motion.div variants={itemVariants} className="mb-6">
             <span className="text-caption font-mono tracking-widest text-accent uppercase">
-              Creative Developer
+              Full Stack Developer
+
             </span>
           </motion.div>
           
@@ -97,11 +98,11 @@ function Hero() {
             variants={itemVariants}
             className="text-display font-display mb-8 leading-tight"
           >
-            <span className="text-gradient-subtle">Crafting</span>
+            <span className="text-gradient-subtle">Building</span>
             <br />
-            <span className="text-gradient-gold">Digital</span>
+            <span className="text-gradient-gold">Scalable</span>
             <br />
-            <span className="text-text">Experiences</span>
+            <span className="text-text">Web & Mobile Products</span>
           </motion.h1>
           
           {/* Subtitle */}
@@ -109,8 +110,9 @@ function Hero() {
             variants={itemVariants}
             className="text-body max-w-xl mb-12 text-textMuted font-light"
           >
-            I design and build immersive digital products with a focus on 
-            aesthetics, interaction, and thoughtful details. Based in San Francisco.
+           Full stack developer specialized in building scalable web applications, 
+from robust backend systems to clean, intuitive user interfaces. 
+Focused on performance, security, and real-world solutions.
           </motion.p>
           
           {/* CTA Buttons */}
@@ -143,20 +145,7 @@ function Hero() {
             </motion.button>
           </motion.div>
 
-          {/* Tech Stack */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 flex flex-wrap gap-4"
-          >
-            {['React', 'TypeScript', 'Node.js', 'Three.js', 'PostgreSQL'].map((tech, index) => (
-              <span
-                key={tech}
-                className="px-5 py-2 glass rounded-full text-caption text-textMuted tracking-wide magnetic"
-              >
-                {tech}
-              </span>
-            ))}
-          </motion.div>
+        <hr className='w-2/3 h-px my-12 bg-yellow-500'/>
         </div>
       </motion.div>
 

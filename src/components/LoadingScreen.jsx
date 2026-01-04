@@ -23,7 +23,7 @@ function LoadingScreen() {
               transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
             />
             <div className="absolute inset-0 glass rounded-full flex items-center justify-center">
-              <span className="text-3xl font-display text-accent">A</span>
+              <span className="text-3xl font-display text-accent">OU</span>
             </div>
           </div>
         </motion.div>
@@ -34,7 +34,7 @@ function LoadingScreen() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="text-body text-textMuted font-light tracking-wider"
         >
-          Creating Experiences
+          Turning Ideas Into Web And Mobile Products
         </motion.p>
         
         {/* Elegant Progress Line */}

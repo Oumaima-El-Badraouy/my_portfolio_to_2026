@@ -1,40 +1,50 @@
 import { motion } from 'framer-motion'
 
 function Skills() {
-  const skillCategories = [
-    {
-      name: 'Creative Development',
-      skills: [
-        { name: 'React & Next.js', level: 95 },
-        { name: 'TypeScript', level: 90 },
-        { name: 'Three.js / WebGL', level: 85 },
-        { name: 'Framer Motion', level: 92 },
-      ]
-    },
-    {
-      name: 'Backend & Infrastructure',
-      skills: [
-        { name: 'Node.js', level: 92 },
-        { name: 'PostgreSQL', level: 88 },
-        { name: 'AWS', level: 85 },
-        { name: 'Docker', level: 88 },
-      ]
-    },
-    {
-      name: 'Design & Tools',
-      skills: [
-        { name: 'UI/UX Design', level: 90 },
-        { name: 'Figma', level: 87 },
-        { name: 'Git', level: 95 },
-        { name: 'Testing', level: 82 },
-      ]
-    }
-  ]
+ const skillCategories = [
+  {
+    name: 'Frontend Development',
+    skills: [
+      { name: 'React & Next.js' },
+      { name: 'TypeScript & JavaScript (ES6+)' },
+      { name: 'Tailwind CSS' },
+      { name: 'React Native' },
+      { name: 'State Management (Redux )' },
+      { name: 'Responsive Design' },
+      { name: 'Web Performance Optimization' },
+    ]
+  },
+  {
+    name: 'Backend Development',
+    skills: [
+      { name: 'Node.js (Express / Fastify)' },
+      { name: 'API Design (REST)' },
+      { name: 'Laravel' },
+      { name: 'Flask' },
+      { name: 'Authentication & Authorization (JWT)' },
+      { name: 'PostgreSQL' },
+      { name: 'MySQL' },
+      { name: 'MongoDB' },
+      { name: 'ORMs ( Eloquent)' },
+    ]
+  },
 
-  const additionalSkills = [
-    'GraphQL', 'Python', 'Redis', 'Kubernetes', 'Tailwind CSS', 'Storybook', 
-    'CI/CD', 'MongoDB', 'Serverless', 'Stripe', 'Prisma', 'Zustand'
-  ]
+  {
+    name: 'Tools',
+    skills: [
+      { name: 'Git & Version Control' },
+      { name: 'Testing & Debugging' },
+      { name: 'Clean Architecture' },
+      { name: 'Agile / Scrum Workflow' },
+      { name: 'API Documentation ( Postman)' },
+      {name:'Docker'},
+      {name:'Deployment (Vercel / Railway)'}
+    ]
+  }
+]
+
+
+  
 
   return (
     <section id="skills" className="py-section relative">
@@ -48,14 +58,15 @@ function Skills() {
           className="text-center mb-16"
         >
           <span className="text-caption font-mono tracking-widest text-accent uppercase block mb-4">
-            Expertise
+            Skills
           </span>
           <h2 className="text-heading font-display mb-6">
-            Technical <span className="text-gradient-gold">Proficiency</span>
+           Technical  <span className="text-gradient-gold">Expertise</span>
           </h2>
           <p className="text-body text-textMuted font-light max-w-2xl mx-auto">
-            A curated selection of technologies and methodologies I employ 
-            to deliver exceptional digital solutions.
+            A practical overview of the technologies I use to build, deploy
+            and maintain full-stack web applications.
+
           </p>
         </motion.div>
 
@@ -86,17 +97,8 @@ function Skills() {
                   >
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-body text-textLight font-light">{skill.name}</span>
-                      <span className="text-caption text-accent font-mono">{skill.level}%</span>
                     </div>
-                    <div className="h-1 bg-border rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: categoryIndex * 0.15 + skillIndex * 0.1 + 0.2 }}
-                        className="h-full bg-gradient-to-r from-accent/80 to-accent rounded-full"
-                      />
-                    </div>
+                   
                   </motion.div>
                 ))}
               </div>
@@ -104,30 +106,7 @@ function Skills() {
           ))}
         </div>
 
-        {/* Additional Skills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-center"
-        >
-          <p className="text-caption text-textMuted uppercase tracking-widest mb-6">Also Proficient In</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {additionalSkills.map((skill, index) => (
-              <motion.span
-                key={skill}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
-                className="px-4 py-2 glass rounded-full text-caption text-textMuted hover:text-text hover:bg-white/5 transition-all cursor-default magnetic"
-              >
-                {skill}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
+      
       </div>
     </section>
   )

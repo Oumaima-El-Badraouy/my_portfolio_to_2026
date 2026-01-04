@@ -13,7 +13,6 @@ function Footer() {
     Social: [
       { name: 'GitHub', href: 'https://github.com/Oumaima-El-Badraouy' },
       { name: 'LinkedIn', href: 'https://www.linkedin.com/in/oumaima-el-badraouy/' },
-      { name: 'Twitter', href: 'https://twitter.com' },
     ],
     Capabilities: [
       { name: 'Web Development', href: '#skills' },
@@ -25,7 +24,6 @@ function Footer() {
   const socialLinks = [
     { icon: FaGithub, href: 'https://github.com/Oumaima-El-Badraouy', label: 'GitHub' },
     { icon: FaLinkedin, href: 'https://www.linkedin.com/in/oumaima-el-badraouy/', label: 'LinkedIn' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
   ]
 
   return (
@@ -43,12 +41,12 @@ function Footer() {
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 glass-surface rounded-full flex items-center justify-center">
-                <span className="text-lg font-display text-accent">A</span>
+                <span className="text-lg font-display text-accent">OU</span>
               </div>
               <span className="font-display text-lg tracking-wide">Portfolio</span>
             </div>
             <p className="text-body text-textMuted font-light mb-6">
-              Crafting exceptional digital experiences with a focus on aesthetics and functionality.
+Developing end-to-end web solutions, combining robust backend systems with modern, intuitive interfaces.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
