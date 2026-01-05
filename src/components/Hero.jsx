@@ -127,7 +127,7 @@ function Hero() {
             </a>
           </motion.div>
 
-          <hr className='w-2/3 h-px my-12 bg-yellow-500'/>
+          <hr className='md:w-2/3 w-full h-px my-12 bg-yellow-500'/>
         </div>
       </motion.div>
     </section>

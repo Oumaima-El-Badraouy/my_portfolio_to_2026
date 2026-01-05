@@ -10,6 +10,8 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop',
     technologies: ['Laravel', 'Flutter', 'Mysql'],
     year: '2025',
+    github: 'https://github.com/Oumaima-El-Badraouy/happyNation',
+    video: 'https://docs.google.com/videos/d/1mQVaqHXAknLd0-evlK0Heu25EPxSKdYq81NPi64hR3g/edit?usp=sharing',
   },
   {
     title: 'Nextraction ',
@@ -18,6 +20,8 @@ const projects = [
     image: 'https://raw.githubusercontent.com/Oumaima-El-Badraouy/Geeks_Images_Projects/583b2853d6d9aec598a4f42f9aae73f5cc92e793/Nextraction.png',
     technologies: ['Python', 'Flask', 'js/Css/Html', 'Gemini API'],
     year: '2025',
+    github: 'https://github.com/Oumaima-El-Badraouy/Nextraction',
+    video: 'https://drive.google.com/file/d/11eYVjvsRKnpN06hjNri9GG5Vf-WnscII/view?usp=sharing',
   },
   {
     title: 'L\' Essence- store management',
@@ -26,6 +30,8 @@ const projects = [
     image: 'https://raw.githubusercontent.com/Oumaima-El-Badraouy/Geeks_Images_Projects/99477fd451390deb89f4cd9bbe0a4f488bed83ab/Essence.png',
     technologies: ['React', 'TailwindCss','WhatsApp API'],
     year: '2025',
+    github: 'https://github.com/Oumaima-El-Badraouy/L-ESSENCE',
+    Live: 'https://l-essence-7q8xvqxpl-oumaima-el-badraouys-projects.vercel.app',
   },
    {
     title: 'Rafiqi – Smart Healthcare Assistant',
@@ -34,6 +40,8 @@ const projects = [
     image: 'https://raw.githubusercontent.com/Oumaima-El-Badraouy/Geeks_Images_Projects/73cef557bbbdb37cb1f354d2e09e328a71182d7b/Rafiqi.jpg',
     technologies: ['Reactjs', 'TailwindCss','Laravel','MySQL','JWT','Socket.io'],
     year: '2025',
+    github: 'https://github.com/zineb0v0/Cohort01_healthcare',
+    video: 'https://drive.google.com/file/d/1JRWouL4B2je_zmF0zuOvnQi-mD0KVsSd/view?usp=drive_link',
   },
    {
     title: 'Kree-Mobile Application',
@@ -42,6 +50,8 @@ const projects = [
     image: 'https://raw.githubusercontent.com/Oumaima-El-Badraouy/Geeks_Images_Projects/846d22e7e65029aab3700bafdc42ca88f2af6912/KREE2.png',
     technologies: ['React Native', 'Node.js','Socket.io', 'Mongodb', 'NativeWind','Expo'],
     year: '2025',
+    github: 'https://github.com/Oumaima-El-Badraouy/KREEAPP',
+    
   },
 ]
 
@@ -71,31 +81,41 @@ function ProjectCard({ project, index }) {
           </span>
         </div>
 
-        {/* Overlay on Hover */}
-        <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
-          <motion.a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-4 glass rounded-full text-text hover:text-accent transition-colors"
-            aria-label="View Project"
-          >
-            <FaExternalLinkAlt size={20} />
-          </motion.a>
-          <motion.a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-4 glass rounded-full text-text hover:text-accent transition-colors"
-            aria-label="View Code"
-          >
-            <FaGithub size={20} />
-          </motion.a>
-        </div>
+      {/* Overlay on Hover */}
+<div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
+
+  {/* Live OR Video */}
+  {(project.live || project.video) && (
+    <motion.a
+      href={project.live || project.video}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="p-4 glass rounded-full text-text hover:text-accent transition-colors"
+      aria-label="View Project"
+    >
+      <FaExternalLinkAlt size={20} />
+    </motion.a>
+  )}
+
+  {/* GitHub */}
+  {project.github && (
+    <motion.a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="p-4 glass rounded-full text-text hover:text-accent transition-colors"
+      aria-label="View Code"
+    >
+      <FaGithub size={20} />
+    </motion.a>
+  )}
+
+</div>
+
       </div>
 
       {/* Content */}

@@ -11,49 +11,22 @@ import { Toaster } from 'react-hot-toast'
 
 function CustomCursor() {
   const cursorRef = useRef(null)
-  const followerRef = useRef(null)
 
   useEffect(() => {
     const cursor = cursorRef.current
-    const follower = followerRef.current
 
     const moveCursor = (e) => {
-      if (cursor) {
-        cursor.style.left = `${e.clientX}px`
-        cursor.style.top = `${e.clientY}px`
-      }
-      if (follower) {
-        follower.style.left = `${e.clientX}px`
-        follower.style.top = `${e.clientY}px`
-      }
-    }
-
-    const handleMouseOver = (e) => {
-      if (follower) {
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
-          follower.classList.add('hover')
-        } else {
-          follower.classList.remove('hover')
-        }
-      }
+      if (!cursor) return
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
     }
 
     window.addEventListener('mousemove', moveCursor)
-    window.addEventListener('mouseover', handleMouseOver)
-
-    return () => {
-      window.removeEventListener('mousemove', moveCursor)
-      window.removeEventListener('mouseover', handleMouseOver)
-    }
+    return () => window.removeEventListener('mousemove', moveCursor)
   }, [])
 
-  return (
-    <>
-      <div ref={cursorRef} className="cursor" />
-      <div ref={followerRef} className="cursor-follower" />
-    </>
-  )
+  return <div ref={cursorRef} className="simple-cursor" />
 }
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
