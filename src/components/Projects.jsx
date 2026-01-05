@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { useState } from 'react'
 
 const projects = [
- 
   {
     title: 'Happynation - Employee Well-Being AI Evaluation App',
     category: 'Full-Stack Mobile Development',
-    description: 'A mobile application that evaluates an employee’s well-being through a short questionnaire and uses AI to generate a clear diagnostic report with scores, risks, and personalized recommendations.',
+    description: 'A mobile application that evaluates an employee\'s well-being through a short questionnaire and uses AI to generate a clear diagnostic report with scores, risks, and personalized recommendations.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop',
     technologies: ['Laravel', 'Flutter', 'Mysql'],
     year: '2025',
@@ -31,9 +31,9 @@ const projects = [
     technologies: ['React', 'TailwindCss','WhatsApp API'],
     year: '2025',
     github: 'https://github.com/Oumaima-El-Badraouy/L-ESSENCE',
-    Live: 'https://l-essence-7q8xvqxpl-oumaima-el-badraouys-projects.vercel.app',
+    live: 'https://l-essence-7q8xvqxpl-oumaima-el-badraouys-projects.vercel.app',
   },
-   {
+  {
     title: 'Rafiqi – Smart Healthcare Assistant',
     category: 'HealthCare app web',
     description: 'Rafiqi is a healthcare web application designed to improve the connection between patients and doctors,The platform allows patients to easily book appointments, manage their medical follow-ups, and receive helpful reminders.',
@@ -43,7 +43,7 @@ const projects = [
     github: 'https://github.com/zineb0v0/Cohort01_healthcare',
     video: 'https://drive.google.com/file/d/1JRWouL4B2je_zmF0zuOvnQi-mD0KVsSd/view?usp=drive_link',
   },
-   {
+  {
     title: 'Kree-Mobile Application',
     category: 'Full-Stack Mobile Development',
     description: 'Revolutionize car rental in Morocco by eliminating price opacity and building trust through Morocco\'s first "Name Your Price" marketplace.',
@@ -51,11 +51,20 @@ const projects = [
     technologies: ['React Native', 'Node.js','Socket.io', 'Mongodb', 'NativeWind','Expo'],
     year: '2025',
     github: 'https://github.com/Oumaima-El-Badraouy/KREEAPP',
-    
   },
 ]
 
 function ProjectCard({ project, index }) {
+  const [isTapped, setIsTapped] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+  
+  // Combine hover and tap states for mobile/desktop
+  const showButtons = isHovered || isTapped
+
+  const handleTap = () => {
+    setIsTapped(!isTapped)
+  }
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 50 }}
@@ -63,14 +72,17 @@ function ProjectCard({ project, index }) {
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: index * 0.15 }}
       className="group cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTap}
     >
       {/* Image Container */}
       <div className="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
         <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-          whileHover={{ scale: 1.05 }}
+          className="w-full h-full object-cover transform transition-transform duration-700 ease-out"
+          animate={{ scale: showButtons ? 1.05 : 1 }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-60" />
         
@@ -81,41 +93,78 @@ function ProjectCard({ project, index }) {
           </span>
         </div>
 
-      {/* Overlay on Hover */}
-<div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
+        {/* Mobile Tap Indicator (only visible on mobile) */}
+        <div className="md:hidden absolute top-4 left-4">
+          <span className="px-3 py-1 bg-background/80 rounded-full text-caption text-text text-xs">
+            Tap to view links
+          </span>
+        </div>
 
-  {/* Live OR Video */}
-  {(project.live || project.video) && (
-    <motion.a
-      href={project.live || project.video}
-      target="_blank"
-      rel="noopener noreferrer"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      className="p-4 glass rounded-full text-text hover:text-accent transition-colors"
-      aria-label="View Project"
-    >
-      <FaExternalLinkAlt size={20} />
-    </motion.a>
-  )}
+        {/* Overlay with Buttons */}
+        <div className={`absolute inset-0 bg-background/40 transition-all duration-500 flex items-center justify-center gap-4 
+          ${showButtons ? 'opacity-100' : 'opacity-0'}`}>
+          
+          {/* Live OR Video Button */}
+          {(project.live || project.video) && (
+            <motion.a
+              href={project.live || project.video}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 glass rounded-full text-text hover:text-accent transition-colors"
+              aria-label="View Project"
+              onClick={(e) => e.stopPropagation()} // Prevent card tap when clicking button
+            >
+              <FaExternalLinkAlt size={20} />
+            </motion.a>
+          )}
 
-  {/* GitHub */}
-  {project.github && (
-    <motion.a
-      href={project.github}
-      target="_blank"
-      rel="noopener noreferrer"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      className="p-4 glass rounded-full text-text hover:text-accent transition-colors"
-      aria-label="View Code"
-    >
-      <FaGithub size={20} />
-    </motion.a>
-  )}
+          {/* GitHub Button */}
+          {project.github && (
+            <motion.a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 glass rounded-full text-text hover:text-accent transition-colors"
+              aria-label="View Code"
+              onClick={(e) => e.stopPropagation()} // Prevent card tap when clicking button
+            >
+              <FaGithub size={20} />
+            </motion.a>
+          )}
+        </div>
 
-</div>
-
+        {/* Alternative: Always Visible Buttons on Mobile (Option 2) */}
+        {/* Uncomment this block if you want buttons always visible on mobile */}
+        {/* 
+        <div className="md:hidden absolute bottom-4 left-0 right-0 flex justify-center gap-4">
+          {(project.live || project.video) && (
+            <a
+              href={project.live || project.video}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-background/90 rounded-full text-text hover:text-accent"
+              aria-label="View Project"
+            >
+              <FaExternalLinkAlt size={18} />
+            </a>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-background/90 rounded-full text-text hover:text-accent"
+              aria-label="View Code"
+            >
+              <FaGithub size={18} />
+            </a>
+          )}
+        </div>
+        */}
       </div>
 
       {/* Content */}
@@ -180,8 +229,6 @@ function Projects() {
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
-
-       
       </div>
     </section>
   )
