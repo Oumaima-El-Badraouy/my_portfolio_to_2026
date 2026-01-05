@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Sphere, MeshDistortMaterial, Float, Stars, MeshRefractionMaterial } from '@react-three/drei'
+import { OrbitControls, Sphere, MeshDistortMaterial, Float, Stars } from '@react-three/drei'
 import { motion } from 'framer-motion'
-import { scrollTo } from 'react-scroll'
+import { Link as ScrollLink } from 'react-scroll'
 
 function AnimatedSphere() {
   const meshRef = useRef()
@@ -45,22 +45,12 @@ function BackgroundElements() {
 function Hero() {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } },
   }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
   }
 
   return (
@@ -89,15 +79,11 @@ function Hero() {
           <motion.div variants={itemVariants} className="mb-6">
             <span className="text-caption font-mono tracking-widest text-accent uppercase">
               Full Stack Developer
-
             </span>
           </motion.div>
           
           {/* Main Heading */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-display font-display mb-8 leading-tight"
-          >
+          <motion.h1 variants={itemVariants} className="text-display font-display mb-8 leading-tight">
             <span className="text-gradient-subtle">Building</span>
             <br />
             <span className="text-gradient-gold">Scalable</span>
@@ -106,25 +92,20 @@ function Hero() {
           </motion.h1>
           
           {/* Subtitle */}
-          <motion.p
-            variants={itemVariants}
-            className="text-body max-w-xl mb-12 text-textMuted font-light"
-          >
-           Full stack developer specialized in building scalable web applications, 
-from robust backend systems to clean, intuitive user interfaces. 
-Focused on performance, security, and real-world solutions.
+          <motion.p variants={itemVariants} className="text-body max-w-xl mb-12 text-textMuted font-light">
+            Full stack developer specialized in building scalable web applications, 
+            from robust backend systems to clean, intuitive user interfaces. 
+            Focused on performance, security, and real-world solutions.
           </motion.p>
           
           {/* CTA Buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap gap-6"
-          >
-            <motion.button
-              onClick={() => scrollTo('projects')}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="group px-8 py-4 glass rounded-full text-body font-medium text-text flex items-center gap-3 magnetic"
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
+            {/* Scroll to Projects */}
+            <ScrollLink
+              to="projects"
+              smooth={true}
+              duration={800}
+              className="group px-8 py-4 glass rounded-full text-body font-medium text-text flex items-center gap-3 cursor-pointer magnetic"
             >
               <span>View Selected Work</span>
               <motion.span
@@ -134,22 +115,21 @@ Focused on performance, security, and real-world solutions.
               >
                 →
               </motion.span>
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            </ScrollLink>
+
+            {/* Download Resume */}
+            <a
+              href="/Oumaima-el-badraouy-EN.pdf"  // 7tt CV dyalk f public folder
+              download
               className="px-8 py-4 rounded-full text-body font-medium text-textMuted hover:text-text transition-colors magnetic"
             >
-              Get in Touch
-            </motion.button>
+              Download Resume
+            </a>
           </motion.div>
 
-        <hr className='w-2/3 h-px my-12 bg-yellow-500'/>
+          <hr className='w-2/3 h-px my-12 bg-yellow-500'/>
         </div>
       </motion.div>
-
-     
     </section>
   )
 }
