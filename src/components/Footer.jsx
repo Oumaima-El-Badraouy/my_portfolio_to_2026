@@ -7,7 +7,7 @@ function Footer() {
   const footerLinks = {
     Navigation: [
       { name: 'About', href: '#about' },
-      { name: 'Work', href: '#projects' },
+      { name: 'Projects', href: '#projects' },
       { name: 'Contact', href: '#contact' },
     ],
     Social: [
@@ -106,15 +106,9 @@ Developing end-to-end web solutions, combining robust backend systems with moder
           </p>
           
           <div className="flex items-center gap-2 text-caption text-textMuted">
-            <span>Designed & Developed with</span>
-            <motion.span
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-accent"
-            >
-              <FaHeart size={14} />
-            </motion.span>
-            <span>in San Francisco</span>
+            <span>Designed & Developed By Oumaima El Badraouy</span>
+          
+            <span>in Morocco</span>
           </div>
         </motion.div>
       </div>

@@ -17,7 +17,7 @@ function Skills() {
   {
     name: 'Backend Development',
     skills: [
-      { name: 'Node.js (Express / Fastify)' },
+      { name: 'Node.js (Express)' },
       { name: 'API Design (REST)' },
       { name: 'Laravel' },
       { name: 'Flask' },

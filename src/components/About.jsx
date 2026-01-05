@@ -4,7 +4,7 @@ import { FaReact, FaNodeJs, FaDatabase, FaCloud, FaCode, FaLayerGroup } from 're
 function About() {
   const stats = [
     { label: 'Years Experience', value: '2' },
-    { label: 'Projects Delivered', value: '20+' },
+    { label: 'Projects Delivered', value: '10+' },
     { label: 'Happy Clients', value: '5+' },
     { label: 'Technologies', value: '4+' },
   ]
@@ -18,7 +18,7 @@ function About() {
     { 
       icon: FaReact, 
       title: 'Creative Technology', 
-      description: 'Building interactive experiences using React, WebGL, and emerging web technologies.' 
+      description: 'Building interactive experiences and emerging web technologies.' 
     },
     { 
       icon: FaLayerGroup, 

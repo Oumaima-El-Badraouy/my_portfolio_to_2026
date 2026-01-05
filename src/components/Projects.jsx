@@ -2,37 +2,46 @@ import { motion } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
 const projects = [
+ 
   {
-    title: 'E-Commerce Platform',
-    category: 'Full-Stack Development',
-    description: 'A sophisticated e-commerce solution featuring real-time inventory management, seamless payment processing, and a comprehensive admin dashboard. The platform delivers exceptional performance while maintaining an elegant user experience.',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    year: '2024',
-  },
-  {
-    title: 'Task Management App',
-    category: 'Productivity Tool',
-    description: 'A collaborative project management platform with real-time updates, team workspaces, and intuitive automated workflows. Features include drag-and-drop kanban boards and comprehensive analytics.',
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop',
-    technologies: ['Next.js', 'TypeScript', 'Prisma', 'WebSocket'],
-    year: '2024',
-  },
-  {
-    title: 'Social Media Dashboard',
-    category: 'Analytics Platform',
-    description: 'An elegant analytics dashboard for social media management with multi-platform integration, intelligent scheduling, and deep engagement metrics through interactive visualizations.',
+    title: 'Happynation - Employee Well-Being AI Evaluation App',
+    category: 'Full-Stack Mobile Development',
+    description: 'A mobile application that evaluates an employee’s well-being through a short questionnaire and uses AI to generate a clear diagnostic report with scores, risks, and personalized recommendations.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop',
-    technologies: ['Vue.js', 'Python', 'GraphQL', 'D3.js'],
-    year: '2023',
+    technologies: ['Laravel', 'Flutter', 'Mysql'],
+    year: '2025',
   },
   {
-    title: 'Real-time Chat Application',
-    category: 'Communication Platform',
-    description: 'A feature-rich messaging platform supporting channels, direct messages, file sharing, and video calls. Built with end-to-end encryption and customizable themes.',
-    image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1200&h=800&fit=crop',
-    technologies: ['React', 'Express', 'Socket.io', 'MongoDB'],
-    year: '2023',
+    title: 'Nextraction ',
+    category: 'Full-Stack Web Development',
+    description: 'This project involves building a Web-based Retrieval-Augmented Generation (RAG) pipeline to extract high-signal insights from public online sources. It focuses on fetching, processing, and indexing web content, then answering user questions with evidence-backed responses, proper citations, and safe refusal when information is insufficient.',
+    image: 'https://raw.githubusercontent.com/Oumaima-El-Badraouy/Geeks_Images_Projects/583b2853d6d9aec598a4f42f9aae73f5cc92e793/Nextraction.png',
+    technologies: ['Python', 'Flask', 'js/Css/Html', 'Gemini API'],
+    year: '2025',
+  },
+  {
+    title: 'L\' Essence- store management',
+    category: 'E-Commerce Website',
+    description: 'A luxurious, high-end perfume e-commerce website featuring a sophisticated "Dark Luxury" design aesthetic with gold accents, smooth animations, and a shopping cart integrated with WhatsApp ordering.',
+    image: 'https://raw.githubusercontent.com/Oumaima-El-Badraouy/Geeks_Images_Projects/99477fd451390deb89f4cd9bbe0a4f488bed83ab/Essence.png',
+    technologies: ['React', 'TailwindCss','WhatsApp API'],
+    year: '2025',
+  },
+   {
+    title: 'Rafiqi – Smart Healthcare Assistant',
+    category: 'HealthCare app web',
+    description: 'Rafiqi is a healthcare web application designed to improve the connection between patients and doctors,The platform allows patients to easily book appointments, manage their medical follow-ups, and receive helpful reminders.',
+    image: 'https://raw.githubusercontent.com/Oumaima-El-Badraouy/Geeks_Images_Projects/73cef557bbbdb37cb1f354d2e09e328a71182d7b/Rafiqi.jpg',
+    technologies: ['Reactjs', 'TailwindCss','Laravel','MySQL','JWT','Socket.io'],
+    year: '2025',
+  },
+   {
+    title: 'Kree-Mobile Application',
+    category: 'Full-Stack Mobile Development',
+    description: 'Revolutionize car rental in Morocco by eliminating price opacity and building trust through Morocco\'s first "Name Your Price" marketplace.',
+    image: 'https://raw.githubusercontent.com/Oumaima-El-Badraouy/Geeks_Images_Projects/846d22e7e65029aab3700bafdc42ca88f2af6912/KREE2.png',
+    technologies: ['React Native', 'Node.js','Socket.io', 'Mongodb', 'NativeWind','Expo'],
+    year: '2025',
   },
 ]
 
@@ -152,26 +161,7 @@ function Projects() {
           ))}
         </div>
 
-        {/* View All Link */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-center mt-20"
-        >
-          <motion.a
-            href="https://github.com/Oumaima-El-Badraouy"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-3 px-8 py-4 glass rounded-full text-body text-text hover:text-accent transition-colors magnetic"
-          >
-            <span>Explore All Projects</span>
-            <FaExternalLinkAlt size={16} />
-          </motion.a>
-        </motion.div>
+       
       </div>
     </section>
   )

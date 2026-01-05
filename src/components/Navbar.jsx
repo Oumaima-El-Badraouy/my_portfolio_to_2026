@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa'
-import { scrollTo } from 'react-scroll'
+import {
+  FaGithub,
+  FaLinkedin,
+  FaBars,
+  FaTimes,
+} from 'react-icons/fa'
+import { scroller } from 'react-scroll'
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -15,6 +20,14 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const scrollToSection = (section) => {
+    scroller.scrollTo(section, {
+      smooth: true,
+      duration: 800,
+      offset: -120, // مهم حيت navbar fixed
+    })
+  }
+
   const navItems = [
     { name: 'About', section: 'about' },
     { name: 'Projects', section: 'projects' },
@@ -22,15 +35,23 @@ function Navbar() {
   ]
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com/Oumaima-El-Badraouy', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/oumaima-el-badraouy/', label: 'LinkedIn' },
+    {
+      icon: FaGithub,
+      href: 'https://github.com/Oumaima-El-Badraouy',
+      label: 'GitHub',
+    },
+    {
+      icon: FaLinkedin,
+      href: 'https://www.linkedin.com/in/oumaima-el-badraouy/',
+      label: 'LinkedIn',
+    },
   ]
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         isScrolled ? 'glass py-4' : 'bg-transparent py-6'
       }`}
@@ -42,6 +63,7 @@ function Navbar() {
             className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => scrollToSection('hero')}
           >
             <div className="w-10 h-10 glass-surface rounded-full flex items-center justify-center">
               <span className="text-lg font-display text-accent">OE</span>
@@ -56,7 +78,7 @@ function Navbar() {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
-                onClick={() => scrollTo(item.section)}
+                onClick={() => scrollToSection(item.section)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
@@ -66,7 +88,7 @@ function Navbar() {
                 {item.name}
               </motion.button>
             ))}
-            
+
             <div className="flex items-center gap-6 pl-8 border-l border-border">
               {socialLinks.map((social) => (
                 <motion.a
@@ -107,7 +129,7 @@ function Navbar() {
                 <button
                   key={item.name}
                   onClick={() => {
-                    scrollTo(item.section)
+                    scrollToSection(item.section)
                     setIsMobileMenuOpen(false)
                   }}
                   className="block w-full text-left text-body text-textMuted hover:text-text transition-colors py-2 magnetic"
@@ -115,6 +137,7 @@ function Navbar() {
                   {item.name}
                 </button>
               ))}
+
               <div className="flex items-center gap-5 pt-4 border-t border-border">
                 {socialLinks.map((social) => (
                   <a
