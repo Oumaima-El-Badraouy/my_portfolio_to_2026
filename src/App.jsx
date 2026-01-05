@@ -7,6 +7,7 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
+import { Toaster } from 'react-hot-toast'
 
 function CustomCursor() {
   const cursorRef = useRef(null)
@@ -71,6 +72,14 @@ function App() {
 
   return (
     <>
+  <Toaster
+  position="top-right"
+  toastOptions={{
+    style: {
+      zIndex: 99999,
+    },
+  }}
+/>
       <CustomCursor />
       <div className="noise-overlay" />
       

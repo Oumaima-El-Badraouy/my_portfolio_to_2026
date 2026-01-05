@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import emailjs from 'emailjs-com'
+import toast from 'react-hot-toast'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -11,21 +13,36 @@ function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
+ 
+ const handleSubmit = async (e) => {
+  e.preventDefault()
+  setIsSubmitting(true)
+ 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
+  try {
+    await emailjs.send(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,     
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,   
+      {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY     
+    )
+
     setSubmitStatus('success')
-    setIsSubmitting(false)
     setFormData({ name: '', email: '', subject: '', message: '' })
-    
-    // Reset status after 3 seconds
+  } catch (error) {
+    console.error(error)
+    setSubmitStatus('error')
+  } finally {
+    setIsSubmitting(false)
     setTimeout(() => setSubmitStatus(null), 3000)
   }
+}
+
 
   const contactInfo = [
     { icon: FaEnvelope, label: 'Email', value: 'omaimaelbdraouy@gmail.com', href: 'mailto:omaimaelbdraouy@gmail.com' },
@@ -216,7 +233,7 @@ function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-6 p-4 glass rounded-xl text-center"
                 >
-                  <span className="text-body text-accent">
+                  <span className="text-body text-accent text-green-400">
                     Message sent successfully. I'll get back to you soon.
                   </span>
                 </motion.div>
